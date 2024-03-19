@@ -1,8 +1,11 @@
 
 import { cookies } from "next/headers";
 import { createSessionClient } from "./appwrite";
+import toast from 'react-hot-toast'
 
 export const getUser = async ()=>{
+
+  
     try {
       const { account } = createSessionClient(cookies());
       const user = await account.get();
@@ -10,6 +13,9 @@ export const getUser = async ()=>{
       return user
       
     } catch (error) {
-      console.log(error);
+      // toast.error(error.message)
     }
   }
+
+
+ 

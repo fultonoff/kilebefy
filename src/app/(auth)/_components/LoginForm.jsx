@@ -24,11 +24,10 @@ const LoginForm = () => {
     try {
       const result = await signInWithEmail(data.email, data.password);
       if (result?.error) {
-        console.log(result.error);
         toast.error(result.error);
       }
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     } finally {
       setLoading(false);
     }

@@ -3,7 +3,7 @@ export const SESSION_COOKIE = "appwrite-session";
 
 
 
-console.log(SESSION_COOKIE);
+
 export function createAdminClient() {
     const endpoint = process.env.PUBLIC_APPWRITE_ENDPOINT;
 	const apiKey = process.env.PUBLIC_APPWRITE_API_KEY;
