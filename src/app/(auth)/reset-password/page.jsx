@@ -1,13 +1,13 @@
-import AuthNav from '@/components/AuthNav'
+
+import AuthWrapper from '@/components/AuthWrapper'
 import React from 'react'
+import RecoverForm from '../_components/RecoverForm'
 
 const ForgotPassword = () => {
   return (
-    <div>
-        <AuthNav/>
-
-        Forgotten
-    </div>
+    <AuthWrapper title='Enter your Email Address'>
+      <RecoverForm/>
+    </AuthWrapper>
   )
 }
 

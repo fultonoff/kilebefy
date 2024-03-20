@@ -29,11 +29,13 @@ export async function signInWithEmail(email, password) {
       sameSite: "strict",
       secure: true,
     });
-
-    redirect("/dashboard");
+    
+    
+    
   } catch (error) {
     return { error: error.message };
   }
+  redirect("/dashboard");
 }
 
 export async function signUpWithEmail(email, password, name) {
@@ -63,11 +65,11 @@ export async function signUpWithEmail(email, password, name) {
       secure: true,
     });
 
-	redirect("/dashboard");
-
+    
   } catch (error) {
     return { error: error.message };
   }
+  redirect("/dashboard");
 }
 
 export async function logout() {
