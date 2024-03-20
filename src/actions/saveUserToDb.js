@@ -1,7 +1,7 @@
 const { ID } = require("node-appwrite");
+const { getCurrentUser } = require("./currentUser");
 
 const sdk = require("node-appwrite");
-const { getCurrentUser } = require("./currentUser");
 
 // Init SDK
 const client = new sdk.Client();

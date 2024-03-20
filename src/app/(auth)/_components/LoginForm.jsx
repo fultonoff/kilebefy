@@ -41,7 +41,7 @@ const LoginForm = () => {
       <div>
         <Label>Email</Label>
         <Input
-          type="text"
+          type="email"
           placeholder="Email"
           name="email"
           {...register("email", {
