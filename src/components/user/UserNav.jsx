@@ -9,12 +9,12 @@ import {
 } from "../ui/dropdown-menu";
 import { Avatar } from "../ui/avatar";
 import { getCurrentUser } from "@/actions/currentUser";
-import { logout } from "@/actions/authActions";
-import {LogOut} from 'lucide-react'
-import { SubmitButton } from "../SubmitButton";
-import { LogOutButton } from "../LogOutButton";
+
 import LogoutComponent from "../LogoutComponent";
 import { getUser } from "@/lib/getUser";
+import { Home, Files, User, Settings } from "lucide-react";
+import Link from 'next/link'
+
 
 
 
@@ -22,8 +22,36 @@ import { getUser } from "@/lib/getUser";
 const UserNav = async () => {
   const user = await getUser();
   const currentUser = await getCurrentUser(user?.$id);
+
+  const links = [
+    {
+      id: 1,
+      name: "Home",
+      url: "/dashboard",
+      icon: Home,
+    },
+    {
+      id: 2,
+      name: "Files",
+      url: "/files",
+      icon: Files,
+    },
+    {
+      id: 3,
+      name: "Profile",
+      url: "/profile",
+      icon: User,
+    },
+    {
+      id: 4,
+      name: "Settings",
+      url: "/settings",
+      icon: Settings,
+    },
+  ];
+
   return (
-    <nav className="p-4 border-b">
+    <nav className="p-4">
       <div className="flex items-center justify-between">
         <div className="">
           <Image
@@ -34,12 +62,12 @@ const UserNav = async () => {
             alt='logo'
           />
         </div>
-        <DropdownMenu>
+        <DropdownMenu >
           <DropdownMenuTrigger className="flex items-center gap-2 bg-muted p-2 rounded-md">
             <Avatar className="ring ring-primary ">Hello world</Avatar>
             <span className="text-xs ">{currentUser?.fullname}</span>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56 mr-2">
+          <DropdownMenuContent className="w-56 mr-2" >
             <DropdownMenuLabel className="flex flex-col items-center justify-center">
               <span className="font-bold text-base">
                 {currentUser?.fullname}
@@ -49,11 +77,16 @@ const UserNav = async () => {
               </span>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
+            {links.map((item)=>(
+              
+              <DropdownMenuItem key={item.id}>
+                <Link href={item.url} className={`flex items-center gap-2  `}>
+            <item.icon className='text-muted-foreground h-5 w-5'/>
+            {item.name}
+          </Link>
+              </DropdownMenuItem>
+            ))}
 
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Billing</DropdownMenuItem>
-            <DropdownMenuItem>Team</DropdownMenuItem>
-            <DropdownMenuItem>Subscription</DropdownMenuItem>
             <DropdownMenuSeparator />
         
             <LogoutComponent/>
