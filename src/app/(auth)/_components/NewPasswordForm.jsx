@@ -17,7 +17,6 @@ const NewPasswordForm = () => {
     const userId = param.get('userId')
     const secret = param.get('secret')
 
-    console.log(secret);
 
   const {
     register,
@@ -31,7 +30,6 @@ const NewPasswordForm = () => {
   const onSubmit = async (data) =>{
     const password = data.password
     const repeatPassword = data.repeatPassword
-    // console.log(data);
 
     const userData = {
         userId,

@@ -51,7 +51,7 @@ const UserNav = async () => {
   ];
 
   return (
-    <nav className="p-4">
+    <nav className="p-4 container mx-auto   bg-white/70 z-10 backdrop-filter backdrop-blur-md">
       <div className="flex items-center justify-between">
         <div className="">
           <Image

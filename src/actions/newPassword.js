@@ -25,7 +25,6 @@ export const newPassword = async (userId, secret, password, repeatPassword)=>{
             toast.success("Password updated successfully")
            }
 
-            console.log('clicked');
             
         } catch (error) {
             return{error: error.message}

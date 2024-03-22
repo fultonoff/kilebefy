@@ -3,7 +3,7 @@ import SideNav from "./SideNav";
 
 const SidebarLayout = ({ children }) => {
   return (
-    <div className="flex gap-4 mt-20">
+    <div className="flex gap-4 mt-20 container mx-auto">
        
       <SideNav />
 

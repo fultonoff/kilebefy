@@ -21,7 +21,6 @@ export const getResetPasswordLink = async (email)=>{
     
             await account.createRecovery(email, `${process.env.NEXT_PUBLIC_URL}/new-password`);
 
-            console.log('clicked');
         
     } catch (error) {
         console.log(error);

@@ -1,6 +1,5 @@
 export const Greeting = ()=>{
     const now = new Date().getHours()
-  console.log(now);
   
   let timeOfDay;
   if (now < 12) {

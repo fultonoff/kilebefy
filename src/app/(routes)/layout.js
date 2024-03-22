@@ -3,7 +3,7 @@ import React from 'react'
 
 const layout = ({children}) => {
   return (
-    <main className='container mx-auto'>
+    <main className=''>
     
         <UserNav/>
         {children}
