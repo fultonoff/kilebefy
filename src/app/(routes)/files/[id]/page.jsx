@@ -8,6 +8,9 @@ import { getCurrentUser } from "@/actions/currentUser";
 import { redirect } from "next/navigation";
 import { SubmitButton } from "@/components/SubmitButton";
 import { updateFile } from "@/actions/updateFile";
+import { LogOutButton } from "@/components/LogOutButton";
+import { SaveButton } from "@/components/SaveButton";
+import SaveForm from "./_component/SaveForm";
 const LazyEditor = dynamic(() => import('@/components/editor/Editor'), { ssr: false })
 
 
@@ -36,8 +39,7 @@ const SinglePage = async({params}) => {
   // console.log(file);
 
   const {documents} = file
-  console.log('file', JSON.stringify(documents[0].document));
-
+  
   if(!documents){
     <p>Loading...</p>
   }
@@ -47,31 +49,32 @@ const SinglePage = async({params}) => {
 
   if(documents[0].user.userId === user?.$id){
     return (
-      <main className="mt-10 border rounded-sm p-2">
-        <form action={updateFile}>
+      // <main className="mt-10 border rounded-sm p-2">
+      //   <form action={updateFile}>
 
 
-        <div className='flex p-2 items-center justify-between' >
-          <input type="hidden" name='documentId' value={documents[0].$id}/>
-        <Input type="text" name='title' placeholder="Title" className='max-w-[300px]' defaultValue={documents[0].name}/>
-        <SubmitButton>Save</SubmitButton>
+      //   <div className='flex p-2 items-center justify-between' >
+      //     <input type="hidden" name='documentId' value={documents[0].$id}/>
+      //   <Input type="text" name='title' placeholder="Title" className='max-w-[300px]' defaultValue={documents[0].name}/>
+      //   <SaveButton>Save</SaveButton>
 
 
-        </div>
+      //   </div>
   
-        <div className="grid grid-cols-1 w-full sm:grid-cols-2">
-          {/* <Editor document={documents[0].document}/> */}
+      //   <div className="grid grid-cols-1 w-full sm:grid-cols-2">
+      //     {/* <Editor document={documents[0].document}/> */}
 
-          <Suspense fallback = { <div> Please Wait... </div> }>
+      //     <Suspense fallback = { <div> Please Wait... </div> }>
 
-          <LazyEditor document={documents[0].document}/>
+      //     <LazyEditor document={documents[0].document}/>
 
-          </Suspense>
+      //     </Suspense>
   
-          <div>Whiteboard</div>
-        </div>
-        </form>
-      </main>
+      //     <div>Whiteboard</div>
+      //   </div>
+      //   </form>
+      // </main>
+      <SaveForm documents={documents}/>
     )
 
   }else{

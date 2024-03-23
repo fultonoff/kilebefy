@@ -26,15 +26,17 @@ export const updateFile = async (formData) => {
       .setEndpoint(process.env.PUBLIC_APPWRITE_ENDPOINT)
       .setProject(process.env.PUBLIC_APPWRITE_PROJECT_ID)
       .setKey(process.env.PUBLIC_APPWRITE_API_KEY);
-    await databases.updateDocument(
+   const updateFile= await databases.updateDocument(
       process.env.PUBLIC_DATABASE_ID,
       process.env.PUBLIC_FILES_COLLECTION_ID,
       documentId,
       data
     );
-    revalidatePath("/", "layout", "/file", "/file/[id]", "/dashboard");
-  } catch (error) {
+
+    if(!updateFile)return {error: 'Could not update the file.'};
+} catch (error) {
     console.log(error);
     return { error: error.message };
-  }
+}
+revalidatePath("/", "layout", "/file", "/file/[id]", "/dashboard");
 };

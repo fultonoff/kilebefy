@@ -72,10 +72,6 @@ const Dashbaord = async () => {
           <Separator />
           <UserFilesDashboard/>
         </div>
-        <h1>{user.name}</h1>
-        <h1>{user.$id}</h1>
-        <h1>{user.email}</h1>
-        <p>{currentUser.$id}</p>
       </div>
     </SidebarLayout>
   );
