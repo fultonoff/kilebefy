@@ -46,7 +46,8 @@ export async function AddFileButton({user}) {
             <Input
               id="username"
               type='text'
-              defaultValue="Untitles File"
+              defaultValue="Untitled File"
+              required
               name='name'
               className="col-span-3"
             />

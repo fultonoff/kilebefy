@@ -2,22 +2,14 @@
 import React, { useEffect, useState, useRef } from "react";
 import EditorJS from "@editorjs/editorjs";
 import { tools } from "./Tools";
+import { updateFile } from "@/actions/updateFile";
 
-const Editor = () => {
+const Editor = ({document}) => {
   let editor = { isReady: false };
+
+  console.log('doc', document);
   const ref=useRef()
-  const rawDocument = {
-    "time" : 1550476186479,
-    "blocks" : [{
-      data:{
-        text: 'Start editing',
-        level: 3
-      },
-      id:'123',
-      type: 'title'
-    }],
-    "version" : "2.8.1"
-}
+  const rawDocument = document
 
 const [data, setData]= useState(rawDocument)
 
@@ -25,13 +17,14 @@ console.log(data);
   useEffect(() => {
     if (!editor.isReady) {
       editor = new EditorJS({
+        placeholder: 'Let`s write an awesome story!',
         tools: tools,
         holder: "editorjs",
-        data: document,
+        data: JSON.parse(data),
         onChange: async () => {
           let content = await editor.saver?.save();
           setData(content);
-          // console.log(content);
+          console.log('json',JSON.stringify(content));
         },
       });
     }
@@ -39,8 +32,9 @@ console.log(data);
 console.log();
   ref.current = editor
   return (
-    <div className="border">
+    <div  className="border">
       <div id="editorjs" className="prose lg:prose-xl min-h-full"></div>
+      <input type="hidden" value={JSON.stringify(data)} name='document' />
     </div>
   );
 };
