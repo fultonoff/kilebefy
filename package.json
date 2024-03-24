@@ -50,6 +50,7 @@
     "react-hook-form": "^7.51.1",
     "react-hot-toast": "^2.4.1",
     "react-indiana-drag-scroll": "^2.2.0",
+    "react-resizable-panels": "^2.0.14",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "title-editorjs": "^1.0.2"

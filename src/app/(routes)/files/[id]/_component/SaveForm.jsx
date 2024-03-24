@@ -10,6 +10,7 @@ import { File, Ellipsis } from "lucide-react";
 
 import { updateFile } from "@/actions/updateFile";
 import Canvas from "@/components/Canvas";
+import { Resizable } from '@/components/Resizable'
 const LazyEditor = dynamic(() => import("@/components/editor/Editor"), {
   ssr: false,
 });
@@ -47,8 +48,7 @@ const SaveForm = ({ documents }) => {
           <SaveButton>Save</SaveButton>
         </div>
 
-        <div className="flex flex-col-reverse sm:flex-row w-full h-screen sm:h-[80vh]">
-          {/* <Editor document={documents[0].document}/> */}
+        {/* <div className="flex flex-col-reverse sm:flex-row w-full h-screen sm:h-[80vh]">
 
           <Suspense fallback={<div> Please Wait... </div>}>
             <LazyEditor document={documents[0].document} />
@@ -57,7 +57,20 @@ const SaveForm = ({ documents }) => {
           <div className=" w-full sm:w-3/3 border-l ">
             <Canvas />
           </div>
+        </div> */}
+        <Resizable  left={
+           <Suspense fallback={<div> Please Wait... </div>}>
+           <LazyEditor document={documents[0].document} />
+         </Suspense>
+        }    
+        
+        right={
+          <div className="h-full w-full border-l ">
+          <Canvas />
         </div>
+
+        }
+        />
       </form>
     </main>
   );
