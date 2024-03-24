@@ -36,7 +36,6 @@ const SinglePage = async({params}) => {
 
   const file = await getFile(fileId)
 
-  // console.log(file);
 
   const {documents} = file
   

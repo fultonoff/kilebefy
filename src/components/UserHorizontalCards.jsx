@@ -7,11 +7,9 @@ import { File, EllipsisVertical, FileX2 } from "lucide-react";
 
 
 const UserHorizontalCards = ({ userFiles }) => {
-  console.log(userFiles.length);
 
 
  
-
   if(userFiles.length === 0){
     return (
 

@@ -51,3 +51,25 @@
   }
 }
 
+
+:root{
+
+  .excalidraw {
+    --color-primary: #16a34a;
+    --color-primary-darker: #0e6a2f;
+    --color-primary-darkest: #0c5e2a;
+    --color-primary-light: #20d161;
+  }
+  
+  .excalidraw.theme--dark {
+    --color-primary: #16a34a;
+    --color-primary-darker: #0e6a2f;
+    --color-primary-darkest: #0c5e2a;
+    --color-primary-light: #20d161;
+  }
+  
+
+
+
+
+}

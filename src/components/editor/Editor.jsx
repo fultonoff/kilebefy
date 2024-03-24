@@ -7,13 +7,11 @@ import { updateFile } from "@/actions/updateFile";
 const Editor = ({document}) => {
   let editor = { isReady: false };
 
-  console.log('doc', document);
   const ref=useRef()
   const rawDocument = document
 
 const [data, setData]= useState(rawDocument)
 
-console.log(data);
   useEffect(() => {
     if (!editor.isReady) {
       editor = new EditorJS({
@@ -24,12 +22,10 @@ console.log(data);
         onChange: async () => {
           let content = await editor.saver?.save();
           setData(content);
-          console.log('json',JSON.stringify(content));
         },
       });
     }
   }, []);
-console.log();
   ref.current = editor
   return (
     <div className="overflow-y-auto overflow-x-hidden p-2 min-w-full ">

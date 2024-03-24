@@ -66,7 +66,7 @@ const SaveForm = ({ documents }) => {
         
         right={
           <div className="h-full w-full border-l ">
-          <Canvas />
+          <Canvas whiteboardData={documents[0]?.whiteboard}/>
         </div>
 
         }

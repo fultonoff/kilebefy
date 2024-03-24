@@ -13,10 +13,12 @@ export const updateFile = async (formData) => {
   const title = formData.get("title");
   const documentId = formData.get("documentId");
   const document = formData.get("document");
+  const whiteboard = formData.get("whiteboard");
 
   const data = {
     name: title,
     document: document,
+    whiteboard: whiteboard
   };
 
   try {
