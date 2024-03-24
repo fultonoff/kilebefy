@@ -18,7 +18,10 @@ import { getCurrentUser } from "@/actions/currentUser";
 import { getUser } from "@/lib/getUser";
 import { AddButton } from "./AddButton";
 
-export async function AddFileButton({user}) {
+export async function AddFileButton() {
+
+  const user = await getUser()
+  const currentUser = await getCurrentUser(user?.$id)
     
 
   return (
@@ -51,7 +54,7 @@ export async function AddFileButton({user}) {
               name='name'
               className="col-span-3"
             />
-            <input type="hidden" name='userId' value={user}/>
+            <input type="hidden" name='userId' value={currentUser.$id}/>
 
 
             </div>

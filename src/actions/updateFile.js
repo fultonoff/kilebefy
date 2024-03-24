@@ -1,7 +1,5 @@
 "use server";
 
-const { ID } = require("node-appwrite");
-const { getCurrentUser } = require("./currentUser");
 import { revalidatePath } from "next/cache";
 
 const sdk = require("node-appwrite");

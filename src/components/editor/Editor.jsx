@@ -32,9 +32,9 @@ console.log(data);
 console.log();
   ref.current = editor
   return (
-    <div  className="border">
-      <div id="editorjs" className="prose lg:prose-xl min-h-full"></div>
-      <input type="hidden" value={JSON.stringify(data)} name='document' />
+    <div className="overflow-y-auto overflow-x-hidden p-2 w-full sm:w-1/2">
+      <div id="editorjs" className="prose min-h-full dark:invert"></div>
+      <input type="hidden" value={JSON.stringify(data)} name="document" />
     </div>
   );
 };

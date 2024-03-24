@@ -1,8 +1,14 @@
 import Nav from "@/components/navigation/Nav";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import { getUser } from "@/lib/getUser";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
+  const user = await getUser()
+  
+
+  if(user){
+    redirect('/dashboard')
+  }
   return (
    <main className="">
     <Nav/>

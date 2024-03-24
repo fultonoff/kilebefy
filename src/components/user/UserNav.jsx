@@ -14,6 +14,8 @@ import LogoutComponent from "../LogoutComponent";
 import { getUser } from "@/lib/getUser";
 import { Home, Files, User, Settings } from "lucide-react";
 import Link from 'next/link'
+import { DarkModeToggle } from "../DarkModeToggle";
+
 
 
 
@@ -51,20 +53,26 @@ const UserNav = async () => {
   ];
 
   return (
-    <nav className="p-4 container mx-auto   bg-white/70 z-10 backdrop-filter backdrop-blur-md">
+    <nav className="p-4 container mx-auto   ">
       <div className="flex items-center justify-between">
+          <Link href='/dashboard'>
         <div className="">
+          
           <Image
-            src="/kilebefy-black.png"
+            src="/kilebefy-logo-color.png"
             className=""
             width={40}
             height={30}
             alt='logo'
-          />
+            />
         </div>
+            </Link>
+
+            <div className="flex flex-row-reverse items-center gap-2">
         <DropdownMenu >
           <DropdownMenuTrigger className="flex items-center gap-2 bg-muted p-2 rounded-md">
-            <Avatar className="ring ring-primary ">Hello world</Avatar>
+            {/* <Avatar className="ring ring-primary ">Hello world</Avatar> */}
+            <User/>
             <span className="text-xs ">{currentUser?.fullname}</span>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56 mr-2" >
@@ -92,6 +100,9 @@ const UserNav = async () => {
             <LogoutComponent/>
           </DropdownMenuContent>
         </DropdownMenu>
+
+              <DarkModeToggle/>
+            </div>
       </div>
     </nav>
   );

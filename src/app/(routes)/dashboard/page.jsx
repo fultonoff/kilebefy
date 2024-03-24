@@ -53,7 +53,7 @@ const Dashbaord = async () => {
   return (
     <SidebarLayout>
       <div className="sm:container mx-auto ">
-        <div className="bg-gradient-to-tr from-foreground to-ring rounded-md h-[100px] sm:min-h-[200px] w-full p-2 overflow-hidden">
+        <div className="bg-gradient-to-tr from-foreground dark:from-primary to-ring rounded-md h-[100px] sm:min-h-[200px] w-full p-2 overflow-hidden">
           <div className=" text-xl sm:text-3xl font-bold uppercase text-white relative">
             <Greeting /> <span>{user?.name}</span>
             <div className="hidden sm:block sm:w-52 absolute right-2 top-2">
@@ -68,7 +68,11 @@ const Dashbaord = async () => {
 
         <div className="mt-5">
           <Records/>
-          <AddFileButton user={currentUser.$id}/>
+          <div className="flex items-center justify-between">
+          <AddFileButton />
+          <Link href='/files' className="text-xs underline">View All Files</Link>
+
+          </div>
           <Separator />
           <UserFilesDashboard/>
         </div>
