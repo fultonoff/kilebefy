@@ -1,9 +1,9 @@
 "use client";
 import { deleteFile } from "@/actions/deleteFile";
 import toast from "react-hot-toast";
-import { DropdownMenuItem } from "./ui/dropdown-menu";
-import { Trash } from "lucide-react";
-import { Button } from "./ui/button";
+
+
+import { DeleteButton } from "./DeleteButton";
 
 const DeleteForm = ({fileId}) => {
   async function handleUpdateFile(FormData) {
@@ -18,12 +18,13 @@ const DeleteForm = ({fileId}) => {
     }
   }
   return (
-    <form action={handleUpdateFile}>
-      <Button className="flex items-center gap-2">
-        <Trash className="size-5" />
+    <form action={handleUpdateFile} className="mt-2">
         <input type="hidden" name='documentId' value={fileId}/>
+      {/* <Button variant='destructive' className="flex items-center gap-2 w-full">
+        <Trash className="size-5" />
         <span>Delete</span>
-      </Button>
+      </Button> */}
+      <DeleteButton>Delete</DeleteButton>
     </form>
   );
 };

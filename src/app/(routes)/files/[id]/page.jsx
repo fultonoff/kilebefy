@@ -38,15 +38,17 @@ const SinglePage = async({params}) => {
 
 
   const {documents} = file
+
+  console.log(documents);
   
-  if(!documents){
-    <p>Loading...</p>
-  }
   if(!user){
     redirect('/login')
   }
+  if(!documents){
+    <p>Loading...</p>
+  }
 
-  if(documents[0].user.userId === user?.$id){
+  if(documents[0]?.user.userId === user?.$id){
     return (
       // <main className="mt-10 border rounded-sm p-2">
       //   <form action={updateFile}>
