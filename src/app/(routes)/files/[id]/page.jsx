@@ -33,7 +33,6 @@ const SinglePage = async({params}) => {
 
   const {documents} = file
 
-  console.log(documents);
   
   if(!user){
     redirect('/login')

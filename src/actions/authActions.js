@@ -8,8 +8,7 @@ import { ID } from "node-appwrite";
 
 export async function signInWithEmail(email, password) {
   try {
-    // const email = formData.get("email");
-    // const password = formData.get("password");
+  
 
     if (email === null) {
       throw new Error("Email is required");
@@ -40,9 +39,7 @@ export async function signInWithEmail(email, password) {
 
 export async function signUpWithEmail(email, password, name) {
   try {
-    // const email = formData.get("email");
-    // const password = formData.get("password");
-    // const name = formData.get("name");
+   
 
     if (email === null) {
       throw new Error("Email is required");

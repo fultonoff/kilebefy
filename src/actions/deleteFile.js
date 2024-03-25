@@ -34,5 +34,5 @@ export const deleteFile = async (formData) => {
     return { error: error.message };
 }
 revalidatePath("/", "layout", "/files", "/files/[id]", "/dashboard");
-// redirect('/files')
+redirect('/files')
 };
