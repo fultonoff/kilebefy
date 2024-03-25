@@ -27,7 +27,7 @@ export const createDocument = async (formData) => {
  
     try {
       client
-        .setEndpoint(process.env.APPWRITE_ENDPOINT)
+        .setEndpoint(process.env.PUBLIC_APPWRITE_ENDPOINT)
         .setProject(process.env.PUBLIC_APPWRITE_PROJECT_ID)
         .setKey(process.env.PUBLIC_APPWRITE_API_KEY);
       await databases.createDocument(

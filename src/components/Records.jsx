@@ -17,7 +17,7 @@ const Records = async() => {
     const user = await getUser()
     const currentUser = await getCurrentUser(user?.$id)
 
-    const userFiles = await getUserFiles(currentUser.$id)
+    const userFiles = await getUserFiles(currentUser?.$id)
 
     if(!userFiles){
 
@@ -28,7 +28,7 @@ const Records = async() => {
     <div>
         <h3 className="text-xl sm:text-2xl text-muted-foreground">Records</h3>
           <div className="flex gap-2 items-center text-2xl font-bold uppercase sm:text-3xl">
-            <p>{userFiles.documents.length}</p>
+            <p>{userFiles?.documents.length}</p>
             <span>Records</span>
           </div>
     </div>
