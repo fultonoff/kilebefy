@@ -1,7 +1,7 @@
 'use server'
 const sdk = require('node-appwrite');
 import { redirect } from 'next/navigation';
-import toast from 'react-hot-toast'
+// import toast from 'react-hot-toast'
 
 // Init SDK
 const client = new sdk.Client();
@@ -21,9 +21,9 @@ export const newPassword = async (userId, secret, password, repeatPassword)=>{
     
            const result =  await account.updateRecovery(userId, secret, password, repeatPassword)
 
-           if(result){
-            toast.success("Password updated successfully")
-           }
+        //    if(result){
+        //     toast.success("Password updated successfully")
+        //    }
 
             
         } catch (error) {

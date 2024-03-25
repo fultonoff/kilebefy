@@ -1,5 +1,5 @@
 
-import RegisterForm from "../_components/RegisterForm";
+import RegisterForm from "../../_components/RegisterForm";
 import { getUser } from "@/lib/getUser";
 import { redirect } from "next/navigation";
 import AuthWrapper from "@/components/AuthWrapper";

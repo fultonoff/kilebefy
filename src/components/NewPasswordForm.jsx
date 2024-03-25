@@ -1,64 +1,57 @@
-'use client'
+"use client"
 
-import { SubmitButton } from '@/components/SubmitButton';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import React, { useState } from 'react'
-import { useForm } from 'react-hook-form';
-import { useSearchParams } from 'next/navigation';
-import { newPassword } from '@/actions/newPassword';
+import { useState } from "react";
+import { SubmitButton } from "@/components/SubmitButton";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useForm } from "react-hook-form";
+import { useSearchParams } from 'next/navigation'
+import { newPassword } from "@/actions/newPassword";
 import toast from "react-hot-toast";
 
-
-
 const NewPasswordForm = () => {
-    const [loading, setLoading] = useState(false);
-    const param = useSearchParams()
-    const userId = param.get('userId')
-    const secret = param.get('secret')
-
+  const [loading, setLoading] = useState(false);
+  const searchParams = useSearchParams()
+  const userId = param?.get("userId");
+  const secret = param?.get("secret");
 
   const {
     register,
     handleSubmit,
-    watch,
-    reset,
     getValues,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) =>{
-    const password = data.password
-    const repeatPassword = data.repeatPassword
+  const onSubmit = async (data) => {
+    const password = data.password;
+    const repeatPassword = data.repeatPassword;
+    
 
-    const userData = {
+    setLoading(true);
+    try {
+      const result = await newPassword(
         userId,
         secret,
         password,
         repeatPassword
-    }
+      );
 
-    setLoading(true);
-    try {
-      const result= await newPassword(userId, secret, password, repeatPassword)
-
-        if (result?.error) {
-            toast.error(result.error);
-          }
+      if (result?.error) {
+        toast.error(result.error);
+      }
     } catch (error) {
       console.log(error);
-        
-    }finally{
-        setLoading(false);
+    } finally {
+      setLoading(false);
     }
-  }
+  };
+
+
   return (
     <form
       className="sm:w-1/3 w-full mt-10 flex flex-col gap-4"
       onSubmit={handleSubmit(onSubmit)}
     >
-    
-      
       <div>
         <Label>New Password</Label>
         <Input
@@ -82,7 +75,7 @@ const NewPasswordForm = () => {
         <Input
           type="password"
           placeholder="Password"
-          name="password"
+          name="repeatPassword"
           {...register("repeatPassword", {
             required: "This field is Required",
             validate: (value) => {
@@ -98,9 +91,8 @@ const NewPasswordForm = () => {
         )}
       </div>
       <SubmitButton loading={loading}>Submit</SubmitButton>
-      
     </form>
-  )
-}
+  );
+};
 
-export default NewPasswordForm
+export default NewPasswordForm;
