@@ -14,7 +14,7 @@ const Canvas = ({whiteboardData}) => {
     const [whiteboard, setWhiteboard]= useState()
   return (
     <Suspense fallback={<p>Loading...</p>}>
-    {whiteboardData &&  
+     
     
     
     
@@ -57,7 +57,7 @@ const Canvas = ({whiteboardData}) => {
         </MainMenu>
       </Excalidraw>
     
-    }  
+      
     
     </Suspense>
   );

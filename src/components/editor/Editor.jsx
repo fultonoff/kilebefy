@@ -2,7 +2,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import EditorJS from "@editorjs/editorjs";
 import { tools } from "./Tools";
-import { updateFile } from "@/actions/updateFile";
 
 const Editor = ({document}) => {
   let editor = { isReady: false };
@@ -10,7 +9,8 @@ const Editor = ({document}) => {
   const ref=useRef()
   const rawDocument = document
 
-const [data, setData]= useState(rawDocument)
+const [data, setData]= useState(document)
+
 
   useEffect(() => {
     if (!editor.isReady) {
@@ -18,7 +18,7 @@ const [data, setData]= useState(rawDocument)
         placeholder: 'Let`s write an awesome story!',
         tools: tools,
         holder: "editorjs",
-        data: JSON.parse(data),
+        data: JSON.parse(document),
         onChange: async () => {
           let content = await editor.saver?.save();
           setData(content);

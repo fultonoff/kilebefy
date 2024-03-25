@@ -26,6 +26,11 @@
     --input: 240 5.9% 90%;
     --ring: 142.1 76.2% 36.3%;
     --radius: 0.5rem;
+
+    --color-primary: #16a34a;
+    --color-primary-darker: #0e6a2f;
+    --color-primary-darkest: #0c5e2a;
+    --color-primary-light: #20d161;
   }
 
   .dark {
@@ -48,28 +53,12 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 142.4 71.8% 29.2%;
-  }
-}
 
-
-:root{
-
-  .excalidraw {
     --color-primary: #16a34a;
     --color-primary-darker: #0e6a2f;
     --color-primary-darkest: #0c5e2a;
     --color-primary-light: #20d161;
   }
-  
-  .excalidraw.theme--dark {
-    --color-primary: #16a34a;
-    --color-primary-darker: #0e6a2f;
-    --color-primary-darkest: #0c5e2a;
-    --color-primary-light: #20d161;
-  }
-  
-
-
-
-
 }
+
+

@@ -47,17 +47,6 @@ const SaveForm = ({ documents }) => {
           </div>
           <SaveButton>Save</SaveButton>
         </div>
-
-        {/* <div className="flex flex-col-reverse sm:flex-row w-full h-screen sm:h-[80vh]">
-
-          <Suspense fallback={<div> Please Wait... </div>}>
-            <LazyEditor document={documents[0].document} />
-          </Suspense>
-
-          <div className=" w-full sm:w-3/3 border-l ">
-            <Canvas />
-          </div>
-        </div> */}
         <Resizable  left={
            <Suspense fallback={<div> Please Wait... </div>}>
            <LazyEditor document={documents[0].document} />

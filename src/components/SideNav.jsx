@@ -34,7 +34,7 @@ const SideNav = () => {
     },
   ];
   return (
-    <aside className="w-1/4 hidden md:block">
+    <aside className="w-1/4 hidden lg:block">
       <ul className="flex flex-col ">
         {links.map((item) => (
           <Link href={item.url} className={`flex items-center gap-2 py-4 ${pathname === item.url ? 'text-primary': 'text-muted-foreground'}`} key={item.id}>

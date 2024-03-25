@@ -52,7 +52,7 @@ const Dashbaord = async () => {
   }
   return (
     <SidebarLayout>
-      <div className="sm:container mx-auto ">
+      <div className="w-full">
         <div className="bg-gradient-to-tr from-foreground dark:from-primary to-ring rounded-md h-[100px] sm:min-h-[200px] w-full p-2 overflow-hidden">
           <div className=" text-xl sm:text-3xl font-bold uppercase text-white relative">
             <Greeting /> <span>{user?.name}</span>
