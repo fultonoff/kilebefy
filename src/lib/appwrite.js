@@ -33,9 +33,22 @@ export function createSessionClient(cookies) {
     client.setSession(session.value);
   }
 
+
   return {
     get account() {
       return new Account(client);
     },
   };
 }
+
+	if (session) {
+		client.setSession(session.value);
+	}
+
+	return {
+		get account() {
+			return new Account(client);
+		}
+	}
+}
+
