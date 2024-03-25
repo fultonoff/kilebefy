@@ -5,42 +5,37 @@ export const SESSION_COOKIE = "appwrite-session";
 
 
 export function createAdminClient() {
-    const endpoint = process.env.PUBLIC_APPWRITE_ENDPOINT;
-	const apiKey = process.env.PUBLIC_APPWRITE_API_KEY;
-	const projectId = process.env.PUBLIC_APPWRITE_PROJECT_ID;
-    
+  const endpoint = process.env.APPWRITE_ENDPOINT;
+  const apiKey = process.env.PUBLIC_APPWRITE_API_KEY;
+  const projectId = process.env.PUBLIC_APPWRITE_PROJECT_ID;
 
+  const client = new Client()
+    .setEndpoint(endpoint)
+    .setProject(projectId)
+    .setKey(apiKey);
 
-	const client = new Client()
-		.setEndpoint(endpoint)
-		.setProject(projectId)
-		.setKey(apiKey);
-
-	return {
-		get account() {
-			return new Account(client);
-		}
-	}
+  return {
+    get account() {
+      return new Account(client);
+    },
+  };
 }
 
 export function createSessionClient(cookies) {
-	const endpoint = process.env.PUBLIC_APPWRITE_ENDPOINT;
-	const projectId = process.env.PUBLIC_APPWRITE_PROJECT_ID;
+  const endpoint = process.env.APPWRITE_ENDPOINT;
+  const projectId = process.env.PUBLIC_APPWRITE_PROJECT_ID;
 
+  const client = new Client().setEndpoint(endpoint).setProject(projectId);
 
-	const client = new Client()
-		.setEndpoint(endpoint)
-		.setProject(projectId);
+  const session = cookies.get(SESSION_COOKIE);
 
-	const session = cookies.get(SESSION_COOKIE);
+  if (session) {
+    client.setSession(session.value);
+  }
 
-	if (session) {
-		client.setSession(session.value);
-	}
-
-	return {
-		get account() {
-			return new Account(client);
-		}
-	}
+  return {
+    get account() {
+      return new Account(client);
+    },
+  };
 }

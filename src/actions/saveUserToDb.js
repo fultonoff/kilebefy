@@ -14,7 +14,7 @@ export const saveUser = async (data) => {
   if (!currentUser) {
     try {
       client
-        .setEndpoint(process.env.PUBLIC_APPWRITE_ENDPOINT)
+        .setEndpoint(process.env.APPWRITE_ENDPOINT)
         .setProject(process.env.PUBLIC_APPWRITE_PROJECT_ID)
         .setKey(process.env.PUBLIC_APPWRITE_API_KEY);
       await databases.createDocument(

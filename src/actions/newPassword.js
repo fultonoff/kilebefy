@@ -14,9 +14,9 @@ export const newPassword = async (userId, secret, password, repeatPassword)=>{
 
     try {
         client
-            .setEndpoint(process.env.PUBLIC_APPWRITE_ENDPOINT) // Your API Endpoint
-            .setProject(process.env.PUBLIC_APPWRITE_PROJECT_ID) // Your project ID
-            .setKey(process.env.PUBLIC_APPWRITE_API_KEY);
+          .setEndpoint(process.env.APPWRITE_ENDPOINT) // Your API Endpoint
+          .setProject(process.env.PUBLIC_APPWRITE_PROJECT_ID) // Your project ID
+          .setKey(process.env.PUBLIC_APPWRITE_API_KEY);
     
     
            const result =  await account.updateRecovery(userId, secret, password, repeatPassword)

@@ -9,7 +9,7 @@ const databases = new sdk.Databases(client);
 export const getCurrentUser = async(userId)=>{
     try {
         client
-          .setEndpoint(process.env.PUBLIC_APPWRITE_ENDPOINT) // Your API Endpoint
+          .setEndpoint(process.env.APPWRITE_ENDPOINT) // Your API Endpoint
           .setProject(process.env.PUBLIC_APPWRITE_PROJECT_ID) // Your project ID
           .setKey(process.env.PUBLIC_APPWRITE_API_KEY); // Your secret API key
         
