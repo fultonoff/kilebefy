@@ -24,7 +24,7 @@ export function createAdminClient() {
 }
 
 export function createSessionClient(cookies) {
-	const endpoint = process.env.PUBLIC_APPWRITE_ENDPOINT;
+	const endpoint = 'http://localhost:8000/v1';
 	const projectId = process.env.PUBLIC_APPWRITE_PROJECT_ID;
 
 
