@@ -12,10 +12,10 @@ import {
 } from "@/components/ui/table";
 import { getUser } from "@/lib/getUser";
 import DateFormatter from "./DateFormatter";
-
-
+import { unstable_noStore as noStore } from "next/cache";
 
 const getUserFiles = async (userId) => {
+  noStore();
   try {
     const files = await getFiles(userId);
     return files;

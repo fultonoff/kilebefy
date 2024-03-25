@@ -1,25 +1,4 @@
 
-// import { appwriteConfig } from "@/lib/appwriteConfig";
-// import { getUser } from "@/lib/getUser";
-// import { Client, Databases, Query  } from "appwrite";
-
-// export const getCurrentUser = async () => {
-//     const user = await getUser()
-//   const client = new Client()
-//     .setEndpoint(appwriteConfig.enpoint)
-//     .setProject(process.env.NEXT_PUBLIC_POJECT_ID);
-
-//   const databases = new Databases(client);
-
-//   const isUser = await databases.listDocuments(
-//     appwriteConfig.databaseId,
-//     appwriteConfig.userCollectionId,
-//     [Query.equal("userId", user?.$id)]
-//   );
-
-//   return isUser.documents[0]
-// };
-
 const sdk = require("node-appwrite");
 
 // Init SDK

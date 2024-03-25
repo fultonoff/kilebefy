@@ -5,8 +5,7 @@
 const { ID } = require("node-appwrite");
 const { getCurrentUser } = require("./currentUser");
 import { redirect } from "next/navigation";
-import toast from 'react-hot-toast'
-import { revalidatePath } from 'next/cache'
+
 
 const sdk = require("node-appwrite");
 

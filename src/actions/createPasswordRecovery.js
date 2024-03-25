@@ -1,7 +1,6 @@
 'use server'
 const sdk = require('node-appwrite');
 import {redirect} from 'next/navigation'
-// import { SESSION_COOKIE } from '@/lib/appwrite';
 
 // Init SDK
 const client = new sdk.Client();

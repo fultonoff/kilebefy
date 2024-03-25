@@ -7,10 +7,12 @@ import { getUser } from '@/lib/getUser';
 import React from 'react'
 import FilesTable from './_components/FilesTable';
 import { AddFileButton } from '@/components/AddFileButton';
+import { unstable_noStore as noStore } from 'next/cache';
 
 
 
 const getUserFiles = async (userId) => {
+  noStore()
   try {
     const files = await getFiles(userId);
     return files;

@@ -20,10 +20,7 @@ const DeleteForm = ({fileId}) => {
   return (
     <form action={handleUpdateFile} className="mt-2">
         <input type="hidden" name='documentId' value={fileId}/>
-      {/* <Button variant='destructive' className="flex items-center gap-2 w-full">
-        <Trash className="size-5" />
-        <span>Delete</span>
-      </Button> */}
+      
       <DeleteButton>Delete</DeleteButton>
     </form>
   );

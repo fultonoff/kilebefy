@@ -8,17 +8,17 @@ import { getUser } from "@/lib/getUser";
 import { redirect } from "next/navigation";
 import Image from 'next/image'
 import torus from '../../../../public/torus.png'
-import { UserTable } from "@/components/UserTable";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { AddFileButton } from "@/components/AddFileButton";
 import Records from "@/components/Records";
 import UserFilesDashboard from "@/components/UserFilesDashboard";
+import { unstable_noStore as noStore } from 'next/cache';
 
 
 
 const saveCurrentUsertTodb = async ({ fullname, userEmail, image, userId }) => {
+  noStore()
   const data = {
     fullname,
     userEmail,

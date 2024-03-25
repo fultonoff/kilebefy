@@ -7,9 +7,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { Avatar } from "../ui/avatar";
 import { getCurrentUser } from "@/actions/currentUser";
-
 import LogoutComponent from "../LogoutComponent";
 import { getUser } from "@/lib/getUser";
 import { Home, Files, User, Settings } from "lucide-react";
