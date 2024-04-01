@@ -13,19 +13,24 @@ const [data, setData]= useState(document)
 
 
   useEffect(() => {
-    if (!editor.isReady) {
-      editor = new EditorJS({
-        placeholder: 'Let`s write an awesome story!',
-        tools: tools,
-        holder: "editorjs",
-        data: JSON.parse(document),
-        onChange: async () => {
-          let content = await editor.saver?.save();
-          setData(content);
-        },
-      });
-    }
+
+    
+      if (!editor.isReady) {
+        editor = new EditorJS({
+          placeholder: 'Let`s write an awesome story!',
+          tools: tools,
+          holder: "editorjs",
+          data: JSON.parse(data),
+          onChange: async () => {
+            let content = await editor.saver?.save();
+            setData(content);
+          },
+        });
+      }
+
+    
   }, []);
+  
   ref.current = editor
   return (
     <div className="overflow-y-auto overflow-x-hidden p-2 min-w-full ">

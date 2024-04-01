@@ -11,9 +11,9 @@ const Excalidraw = dynamic(
 );
 
 const Canvas = ({whiteboardData}) => {
-    const [whiteboard, setWhiteboard]= useState()
+    const [whiteboard, setWhiteboard]= useState(whiteboardData)
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+   
      
     
     
@@ -39,7 +39,7 @@ const Canvas = ({whiteboardData}) => {
 
         className="custom-styles"
       >
-        <input type="hidden" name='whiteboard' value={JSON.stringify(whiteboard)}/>
+        <input type="hidden" name='whiteboard' defaultValue={JSON.stringify(whiteboard)}/>
         <WelcomeScreen>
             <WelcomeScreen.Hints.MenuHint/>
             <WelcomeScreen.Hints.ToolbarHint/>
@@ -57,9 +57,6 @@ const Canvas = ({whiteboardData}) => {
         </MainMenu>
       </Excalidraw>
     
-      
-    
-    </Suspense>
   );
 };
 

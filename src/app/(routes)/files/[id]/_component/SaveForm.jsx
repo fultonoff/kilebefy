@@ -22,12 +22,15 @@ import DeleteFileDialog from "@/components/DeleteFileDialog";
 const LazyEditor = dynamic(() => import("@/components/editor/Editor"), {
   ssr: false,
 });
+import Editor from '@/components/editor/Editor'
 
 const SaveForm = ({ documents }) => {
   async function handleUpdateFile(formData) {
     const updating = toast.loading("Saving...");
     const res = await updateFile(formData);
     toast.dismiss(updating);
+
+    console.log(typeof window);
 
     if (res?.error) {
       toast.error(res.error);
@@ -79,8 +82,9 @@ const SaveForm = ({ documents }) => {
         <Resizable
           left={
             <Suspense fallback={<div> Please Wait... </div>}>
-              <LazyEditor document={documents[0].document} />
+              <Editor document={documents[0].document} />
             </Suspense>
+            
           }
           right={
             <div className="h-full w-full border-l ">

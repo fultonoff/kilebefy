@@ -14,7 +14,7 @@ const DeleteForm = ({fileId}) => {
     if (res?.error) {
       toast.error(res.error);
     } else {
-      toast.success("Saved successfully");
+      toast.success("File Deleted");
     }
   }
   return (
